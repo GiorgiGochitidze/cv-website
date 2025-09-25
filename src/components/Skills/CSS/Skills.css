@@ -1,0 +1,130 @@
+.skills-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+  margin-block: 50px;
+  overflow: hidden;
+}
+
+.skills-container h4 {
+  font-size: 50px;
+}
+
+.skills-circle-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  transform: rotate(0deg);
+}
+
+.skills-circle {
+  min-width: 150px;
+  min-height: 150px;
+  word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 5px solid var(--mainColor);
+  gap: 5px;
+  transition: 0.2s box-shadow ease;
+  backdrop-filter: blur(5px);
+  z-index: 5;
+}
+
+.skills-circle p {
+  font-size: 14px;
+}
+
+.skills-circle:hover {
+  box-shadow: 0px 0px 15px var(--mainColor);
+  cursor: pointer;
+}
+
+.skills-circle:hover .skill-icon {
+  filter: drop-shadow(0 0 10px #00ff8888);
+}
+
+/* The active (center) circle */
+.center-circle {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 6px solid var(--mainColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  z-index: 10;
+  backdrop-filter: blur(5px);
+}
+
+/* Orbiting children */
+.child-circle {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid var(--mainColor);
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform-origin: 0 -180px; /* important for radial placement */
+  gap: 5px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.center-circle:hover:not(.child-circle) {
+  cursor: pointer;
+}
+
+.skills-circle-container.active {
+  transform: rotate(360deg);
+  transition: transform 0.3s linear;
+  margin-top: -20px;
+}
+
+@media screen and (max-width: 610px) {
+  .skills-circle-container {
+    scale: 0.9;
+    flex-wrap: wrap;
+  }
+
+  .skills-container {
+    gap: 0;
+  }
+}
+
+@media screen and (max-width: 485px) {
+  .skills-circle-container {
+    scale: 0.8;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 433px) {
+  .skills-circle-container.active {
+    scale: 0.7;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .skills-circle-container.active {
+    scale: 0.6;
+  }
+}

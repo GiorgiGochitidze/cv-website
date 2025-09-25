@@ -1,0 +1,61 @@
+.aboutMe-container {
+  width: 100%;
+  min-height: 400px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+  padding: 30px;
+}
+
+.aboutMe-container h3 {
+  font-size: 50px;
+  color: white;
+  text-align: center;
+}
+
+.aboutMe-card {
+  width: 95%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: stretch;
+  gap: 50px;
+  border-radius: 10px;
+}
+
+.aboutMe-text-part {
+  border: 2px solid var(--mainColor);
+  min-width: 400px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  backdrop-filter: blur(5px);
+  gap: 20px;
+  text-align: center;
+  box-shadow: 0px 0px 15px var(--mainColor);
+  padding: 30px;
+}
+
+.aboutMe-text-part p:nth-child(1) {
+  font-size: 30px;
+  color: var(--mainColor);
+  font-weight: bold;
+  text-align: center;
+}
+
+@media screen and (max-width: 950px) {
+  .aboutMe-card{
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .aboutMe-text-part{
+    min-width: unset;
+  }
+}

@@ -1,0 +1,142 @@
+.landing-container {
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-card {
+  width: 90%;
+  height: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  padding: 30px;
+  border: 2px solid var(--mainColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 0px 15px var(--mainColor);
+}
+
+/* Landing Page text part styles */
+
+.landing-card-text-part {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* margin-top: 80px; */
+}
+
+.landing-card h1 {
+  font-size: 50px;
+}
+
+.landing-card h2,
+.landing-card h2 span {
+  color: var(--mainColor) !important;
+  font-size: 35px;
+}
+
+.landing-card-text-part p {
+  color: lightgray;
+}
+
+/* Image Styles */
+
+.landing-image-container {
+  min-width: 350px;
+  min-height: 350px;
+  max-height: 350px;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  /* margin-top: 20px; */
+  border: 2px solid var(--mainColor);
+  filter: drop-shadow(0px 0px 10px var(--mainColor));
+}
+
+/* Action Button Styles */
+
+.landing-buttons-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+.landing-buttons-container button {
+  width: 150px;
+  height: 38px;
+  background-color: var(--mainColor);
+  border: 0;
+  border-radius: 5px;
+  color: black;
+  will-change: transform;
+  transform: translateZ(0);
+  transition: 0.2s all ease;
+}
+
+.landing-buttons-container button:hover {
+  cursor: pointer;
+  scale: 1.05;
+  transform: rotate(1deg);
+   -webkit-font-smoothing: antialiased;
+}
+
+.landing-buttons-container .hire-me-button {
+  background-color: transparent !important;
+  color: white !important;
+  border: 1px solid var(--mainColor);
+}
+
+/* Responsive */
+
+@media screen and (max-width: 940px) {
+  .landing-card{
+    flex-direction: column;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .landing-card-text-part{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .landing-buttons-container{
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .landing-image-container{
+    width: 90%;
+    min-width: 300px;
+    min-height: 300px;
+  }
+
+  .landing-buttons-container{
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 386px) {
+  .landing-image-container{
+    min-width: 250px;
+    min-height: 250px;
+  }
+}
+@media screen and (max-width: 340px) {
+  .landing-image-container{
+    min-width: 200px;
+    min-height: 200px;
+  }
+}
