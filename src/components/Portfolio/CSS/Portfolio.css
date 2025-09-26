@@ -28,7 +28,6 @@
   height: auto;
   /* background-color: rgb(13, 12, 12); */
   border-radius: 10px;
-  overflow: hidden;
   display: flex;
 }
 
@@ -52,12 +51,16 @@
 
 .project-image-container {
   min-width: 560px;
-  height: auto;
+  height: 300px;
   position: relative;
   border: 2px solid var(--mainColor);
   box-shadow: 0 0 10px var(--mainColor);
   border-radius: 10px;
   overflow: hidden;
+}
+
+.project-image-container img {
+  display: block;
 }
 
 /* Projects button container styles */
@@ -73,7 +76,7 @@
 }
 
 .projects-button-container button {
-  width: 130px;
+  min-width: 130px;
   height: 38px;
   background-color: var(--mainColor);
   border: 0;
@@ -93,4 +96,41 @@
   cursor: pointer;
   transform: scale(1.05);
   rotate: 1deg;
+}
+
+@media screen and (max-width: 981px) {
+  .project-card{
+    flex-direction: column-reverse !important;
+  }
+
+  .project-image-container{
+    width: 100%;
+    height: auto;
+    min-width: unset;
+  }
+
+  .projects-card-description{
+    padding-inline: unset;
+  }
+}
+
+@media screen and (max-width: 565px) {
+  .projects-card-description{
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  .projects-button-container{
+    justify-content: center !important;
+  }
+}
+
+@media screen and (max-width: 365px) {
+  .projects-button-container{
+    flex-wrap: wrap;
+  }
+
+  .projects-button-container button{
+    width: 100%;
+  }
 }

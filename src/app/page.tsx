@@ -1,4 +1,5 @@
 import AboutMe from "@/components/AboutMe/AboutMe";
+import ContactMe from "@/components/ContactMe/ContactMe";
 import Landing from "@/components/Landing/landing";
 import NeonDotsBackground from "@/components/neon-dots";
 import Portfolio from "@/components/Portfolio/Portfolio";
@@ -16,6 +17,8 @@ const App = () => {
       <Skills />
 
       <Portfolio />
+
+      <ContactMe />
     </div>
   );
 };

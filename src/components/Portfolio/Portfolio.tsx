@@ -5,13 +5,15 @@ const Portfolio = () => {
   return (
     <div className="portfolio-container">
       <h5>Portfolio</h5>
-      <p>Here you can see my projects on which i worked on</p>
+      <p style={{ textAlign: "center", paddingInline: "10px" }}>
+        Here you can see my projects on which i worked on
+      </p>
 
       <div className="portfolio-list">
         <PortfolioCard
           flexDirectionSide={"row-reverse"}
-          projectHeader={"Web Canvas"}
-          imageUrl={"/images/Projects/webCanvas.png"}
+          projectHeader={"Travel Pulse"}
+          imageUrl={"/images/Projects/travelPulse.png"}
           projectDescription={`Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam quas
           perferendis tempore voluptatem ea nobis nam distinctio, illum quod
           dolore mollitia atque, voluptate esse quibusdam fugiat, adipisci
@@ -19,8 +21,8 @@ const Portfolio = () => {
         />
         <PortfolioCard
           flexDirectionSide={"row"}
-          projectHeader={"Travel Pulse"}
-          imageUrl={"/images/Projects/travelPulse.png"}
+          projectHeader={"Web Canvas"}
+          imageUrl={"/images/Projects/webCanvas.png"}
           projectDescription={`Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam quas
           perferendis tempore voluptatem ea nobis nam distinctio, illum quod
           dolore mollitia atque, voluptate esse quibusdam fugiat, adipisci

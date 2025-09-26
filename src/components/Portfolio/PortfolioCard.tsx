@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { useMediaQuery } from "react-responsive";
+import { useEffect, useState } from "react";
 
 type ProjectType = {
   imageUrl: string;
@@ -14,13 +18,28 @@ const PortfolioCard = ({
   flexDirectionSide,
 }: ProjectType) => {
   const isFlexDirectionRow = flexDirectionSide === "row";
+  const isMax981 = useMediaQuery({ maxWidth: 981 });
+
+  // hydration-safe flag
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const alignItems =
+    mounted && isFlexDirectionRow && isMax981 ? "flex-end" : "flex-start";
+
   return (
-    <div style={{ flexDirection: flexDirectionSide }} className="project-card">
+    <div
+      style={{
+        flexDirection: flexDirectionSide,
+        alignItems,
+      }}
+      className="project-card"
+    >
       <div className="project-image-container">
         <Image
           src={imageUrl}
           alt={projectHeader}
-          style={{ objectFit: "cover", width: "100%", height: "100%" }}
+          style={{ width: "100%", height: "100%" }}
           priority
           width={1000}
           height={1000}

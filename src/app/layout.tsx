@@ -4,7 +4,8 @@ export const metadata = {
     "My portfolio website, where you can see more details about me, my projects, skills, etc",
 };
 
-import "@/styles/globals.css"
+import Navbar from "@/components/Navbar/Navbar";
+import "@/styles/globals.css";
 
 export default function RootLayout({
   children,
@@ -13,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
