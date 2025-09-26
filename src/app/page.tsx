@@ -1,6 +1,7 @@
 import AboutMe from "@/components/AboutMe/AboutMe";
 import Landing from "@/components/Landing/landing";
 import NeonDotsBackground from "@/components/neon-dots";
+import Portfolio from "@/components/Portfolio/Portfolio";
 import Skills from "@/components/Skills/Skills";
 
 const App = () => {
@@ -13,6 +14,8 @@ const App = () => {
       <AboutMe />
 
       <Skills />
+
+      <Portfolio />
     </div>
   );
 };
