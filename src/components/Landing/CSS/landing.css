@@ -4,7 +4,7 @@
   height: auto;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .landing-card {
@@ -19,6 +19,7 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 0px 15px var(--mainColor);
+  margin-top: 70px;
 }
 
 /* Landing Page text part styles */

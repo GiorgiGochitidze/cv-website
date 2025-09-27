@@ -3,7 +3,7 @@ import PortfolioCard from "./PortfolioCard";
 
 const Portfolio = () => {
   return (
-    <div className="portfolio-container">
+    <div id="portfolio-section" className="portfolio-container">
       <h5>Portfolio</h5>
       <p style={{ textAlign: "center", paddingInline: "10px" }}>
         Here you can see my projects on which i worked on

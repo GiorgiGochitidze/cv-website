@@ -8,7 +8,6 @@ header {
   top: 0;
   left: 0;
   overflow: hidden;
-  /* border-bottom: 2px solid var(--mainColor); */
   z-index: 100;
   background-color: #0d0d0d;
   box-shadow: 0 0 15px var(--mainColor);
@@ -34,7 +33,39 @@ header > nav {
   transition: 0.1s all linear;
 }
 
+.nav-links .active p {
+  color: var(--mainColor) !important;
+}
+
 .nav-links p:hover {
   cursor: pointer;
   color: var(--mainColor);
+}
+
+.menu-icon {
+  display: none;
+}
+
+.menu-icon:hover{
+  cursor: pointer;
+}
+
+@media screen and (max-width: 645px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-icon {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 645px) {
+  .nav-links {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: none;
+  }
 }

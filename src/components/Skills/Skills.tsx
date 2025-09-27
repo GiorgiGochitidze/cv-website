@@ -3,7 +3,7 @@ import "./CSS/Skills.css";
 
 const Skills = () => {
   return (
-    <div className="skills-container">
+    <div id="skills-section" className="skills-container">
       <h4>Skills</h4>
       <div className="skills-list">
         <SkillsIcon />

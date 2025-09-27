@@ -1,5 +1,6 @@
 .contact-form-container {
   width: 100%;
+  min-height: 400px;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -7,6 +8,7 @@
   justify-content: flex-start;
   gap: 30px;
   margin-block: 50px;
+  text-align: center;
 }
 
 .contact-form-container h6 {
@@ -65,4 +67,11 @@
 .contact-form-container form > button:hover {
   cursor: pointer;
   background-color: var(--mainColor);
+}
+
+@media screen and (max-width: 470px) {
+  .contact-form-container form{
+    width: 100%;
+    min-width: unset;
+  }
 }

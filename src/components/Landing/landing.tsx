@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const Landing = () => {
   return (
-    <div className="landing-container">
+    <div id="landing-section" className="landing-container">
       <div className="landing-card">
         <div className="landing-card-text-part">
           <h1>Hello, I&#39;m Giorgi</h1>
