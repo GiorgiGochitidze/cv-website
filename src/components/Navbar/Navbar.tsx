@@ -5,6 +5,7 @@ import { Link } from "react-scroll";
 import { RiMenu3Line } from "react-icons/ri";
 import { useState, useEffect } from "react";
 import DropdownMenu from "./DropdownMenu";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
@@ -32,10 +33,16 @@ const Navbar = () => {
     <>
       <header>
         <nav>
-          <p style={{ color: "var(--mainColor)" }}>Giorgi Gochitidze</p>
+          <motion.p
+            initial={{ opacity: 0, x: -500 }}
+            animate={{ opacity: 1, x: 0 }}
+            style={{ color: "var(--mainColor)" }}
+          >
+            Giorgi Gochitidze
+          </motion.p>
 
           <div className="nav-links">
-            {navLinks.map((navItem) => (
+            {navLinks.map((navItem, index) => (
               <Link
                 key={navItem.label}
                 spy={true}
@@ -47,7 +54,13 @@ const Navbar = () => {
                 className={activeSection === navItem.scrollPath ? "active" : ""}
                 onSetActive={() => handleSetActive(navItem.scrollPath)}
               >
-                <p>{navItem.label}</p>
+                <motion.p
+                  initial={{ opacity: 0, x: 500 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{delay: 0.1 + index * 0.1}}
+                >
+                  {navItem.label}
+                </motion.p>
               </Link>
             ))}
           </div>
@@ -61,7 +74,9 @@ const Navbar = () => {
         </nav>
       </header>
 
-      {showMenu && <DropdownMenu setShowMenu={setShowMenu} navLinks={navLinks} />}
+      {showMenu && (
+        <DropdownMenu setShowMenu={setShowMenu} navLinks={navLinks} />
+      )}
     </>
   );
 };

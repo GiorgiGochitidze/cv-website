@@ -12,8 +12,10 @@ import {
 } from "react-icons/fa";
 import { BiLogoTypescript } from "react-icons/bi";
 import { IconType } from "react-icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import {
   SiAdobephotoshop,
   SiExpress,
@@ -54,7 +56,7 @@ const skillCategories: SkillCategory[] = [
       { skillName: "NodeJs", Icon: FaNodeJs },
       { skillName: "ExpressJs", Icon: SiExpress },
       { skillName: "MongoDB", Icon: SiMongodb },
-      { skillName: "RESTful API", },
+      { skillName: "RESTful API" },
       { skillName: "JWT / Oauth", Icon: SiFusionauth },
     ],
   },
@@ -74,6 +76,11 @@ const skillCategories: SkillCategory[] = [
 const SkillsIcon = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
+  useEffect(() => {
+    AOS.init({ duration: 800, easing: "ease-in-out", once: true });
+    AOS.refresh();
+  }, []);
+
   return (
     <div
       className={`skills-circle-container ${activeCategory && "active"}`}
@@ -87,6 +94,7 @@ const SkillsIcon = () => {
             key={category.name}
             className="skills-circle"
             onClick={() => setActiveCategory(category.name)}
+            data-aos="fade-up"
           >
             {category.Icon && (
               <category.Icon size={50} fill="#00cc6a" className="skill-icon" />
@@ -106,23 +114,25 @@ const SkillsIcon = () => {
             .find((c) => c.name === activeCategory)
             ?.skills.map((skill, i, arr) => {
               const radius = 180; // distance from center
-              const angle = (2 * Math.PI * i) / arr.length - Math.PI / 2; // subtract π/2 to start at top
+              const angle = (2 * Math.PI * i) / arr.length - Math.PI / 2;
               const x = radius * Math.cos(angle);
               const y = radius * Math.sin(angle);
 
+              // Determine AOS animation
+              let aosType = "fade-up";
+              if (i === 0) aosType = "fade-right";
+              else if (i === arr.length - 1) aosType = "fade-left";
+
               return (
                 <motion.div
-                  initial={{ x: 0, y: 0, opacity: 0 }}
-                  animate={{ x, y, opacity: 1 }}
                   key={skill.skillName}
                   className="child-circle"
+                  style={{ x, y }}
+                  data-aos={aosType}
+                  data-aos-delay={i * 100} // optional stagger
                 >
                   {skill.Icon && (
-                    <skill.Icon
-                      size={30}
-                      fill="#00cc6a"
-                      className="skill-icon"
-                    />
+                    <skill.Icon size={30} fill="#00cc6a" className="skill-icon" />
                   )}
                   <p>{skill.skillName}</p>
                 </motion.div>

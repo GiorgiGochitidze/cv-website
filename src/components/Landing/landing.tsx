@@ -3,13 +3,24 @@
 import { Typewriter } from "react-simple-typewriter";
 import "./CSS/landing.css";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Landing = () => {
   return (
     <div id="landing-section" className="landing-container">
-      <div className="landing-card">
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="landing-card"
+      >
         <div className="landing-card-text-part">
-          <h1>Hello, I&#39;m Giorgi</h1>
+          <motion.h1
+            initial={{ opacity: 0, x: -500 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 }}
+          >
+            Hello, I&#39;m Giorgi
+          </motion.h1>
           <h2>
             <Typewriter
               words={[
@@ -27,13 +38,30 @@ const Landing = () => {
               delaySpeed={2000}
             />
           </h2>
-          <p>
+          <motion.p
+            initial={{ opacity: 0, x: -500 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+          >
             Passionate about turning ideas into fast, <br /> functional and
             user-friendly applications.
-          </p>
+          </motion.p>
           <div className="landing-buttons-container">
-            <button>Download CV</button>
-            <button className="hire-me-button">Contact Me</button>
+            <motion.button
+              initial={{ opacity: 0, x: -500 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              Download CV
+            </motion.button>
+            <motion.button
+              initial={{ opacity: 0, x: -500 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 }}
+              className="hire-me-button"
+            >
+              Contact Me
+            </motion.button>
           </div>
         </div>
         <div className="landing-image-container">
@@ -46,7 +74,7 @@ const Landing = () => {
             sizes="100%"
           />
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

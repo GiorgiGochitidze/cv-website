@@ -6,6 +6,11 @@
     font-family: "Neonrec", sans-serif;
 }
 
+body{
+    overflow-x: hidden;
+    background: #0d0d0d;
+}
+
 @font-face {
     font-family: "Neonrec";
     src: url("/fonts/ShareTechMono-Regular.ttf"), format("truetype");
