@@ -9,6 +9,8 @@ type ProjectType = {
   projectHeader: string;
   projectDescription: string;
   flexDirectionSide: "row" | "row-reverse" | "column" | "column-reverse";
+  githubLink: string;
+  websiteLink: string;
 };
 
 const PortfolioCard = ({
@@ -16,6 +18,8 @@ const PortfolioCard = ({
   projectHeader,
   projectDescription,
   flexDirectionSide,
+  githubLink,
+  websiteLink,
 }: ProjectType) => {
   const isFlexDirectionRow = flexDirectionSide === "row";
   const isMax981 = useMediaQuery({ maxWidth: 981 });
@@ -71,16 +75,22 @@ const PortfolioCard = ({
             justifyContent: isFlexDirectionRow ? "flex-end" : "flex-start",
           }}
         >
-          <button data-aos={aosTextAnimation} data-aos-delay="200">
-            View Website
-          </button>
-          <button
-            data-aos={aosTextAnimation}
-            data-aos-delay="300"
-            className="view-github-btn"
-          >
-            View Github
-          </button>
+          <div data-aos={aosTextAnimation} data-aos-delay="200">
+            <a href={websiteLink} target="_blank">
+              <button>View Website</button>
+            </a>
+          </div>
+          <div data-aos={aosTextAnimation} data-aos-delay="300">
+            {githubLink ? (
+              <a href={githubLink} target="_blank">
+                <button className="view-github-btn">View Github</button>
+              </a>
+            ) : (
+              <button className="view-github-btn" disabled>
+                View Github
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>

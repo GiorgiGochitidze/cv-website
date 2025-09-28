@@ -5,7 +5,11 @@ const Portfolio = () => {
   return (
     <div id="portfolio-section" className="portfolio-container">
       <h5 data-aos="fade-up">Portfolio</h5>
-      <p data-aos="fade-up" data-aos-delay="100" style={{ textAlign: "center", paddingInline: "10px" }}>
+      <p
+        data-aos="fade-up"
+        data-aos-delay="100"
+        style={{ textAlign: "center", paddingInline: "10px" }}
+      >
         Here you can see my projects on which i worked on
       </p>
 
@@ -18,6 +22,8 @@ const Portfolio = () => {
           perferendis tempore voluptatem ea nobis nam distinctio, illum quod
           dolore mollitia atque, voluptate esse quibusdam fugiat, adipisci
           corporis repudiandae voluptas?`}
+          githubLink={"https://github.com/GiorgiGochitidze/TravelPulse2"}
+          websiteLink={"https://travelpulse.netlify.app/"}
         />
         <PortfolioCard
           flexDirectionSide={"row"}
@@ -27,6 +33,8 @@ const Portfolio = () => {
           perferendis tempore voluptatem ea nobis nam distinctio, illum quod
           dolore mollitia atque, voluptate esse quibusdam fugiat, adipisci
           corporis repudiandae voluptas?`}
+          githubLink={""}
+          websiteLink={"https://webcanvasstudio.com/"}
         />
       </div>
     </div>

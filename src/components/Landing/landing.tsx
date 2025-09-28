@@ -4,6 +4,7 @@ import { Typewriter } from "react-simple-typewriter";
 import "./CSS/landing.css";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Link } from "react-scroll";
 
 const Landing = () => {
   return (
@@ -47,21 +48,31 @@ const Landing = () => {
             user-friendly applications.
           </motion.p>
           <div className="landing-buttons-container">
-            <motion.button
+            <motion.a
               initial={{ opacity: 0, x: -500 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
+              href="/GiorgiGochitidze.pdf"
+              download={"GiorgiGochitidze.pdf"}
+              className="download-cv-btn"
             >
               Download CV
-            </motion.button>
-            <motion.button
-              initial={{ opacity: 0, x: -500 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 }}
-              className="hire-me-button"
+            </motion.a>
+            <Link
+              smooth={true}
+              duration={500}
+              offset={-150}
+              to={"contact-section"}
             >
-              Contact Me
-            </motion.button>
+              <motion.button
+                initial={{ opacity: 0, x: -500 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4 }}
+                className="hire-me-button"
+              >
+                Contact Me
+              </motion.button>
+            </Link>
           </div>
         </div>
         <div className="landing-image-container">

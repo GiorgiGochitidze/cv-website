@@ -71,7 +71,8 @@
   gap: 20px;
 }
 
-.landing-buttons-container button {
+.landing-buttons-container button,
+.download-cv-btn {
   width: 150px;
   height: 38px;
   background-color: var(--mainColor);
@@ -81,12 +82,17 @@
   will-change: transform;
   transform: translateZ(0);
   transition: 0.2s all ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: unset;
 }
 
-.landing-buttons-container button:hover {
+.landing-buttons-container button:hover,
+.download-cv-btn:hover {
   cursor: pointer;
   scale: 1.05;
-  transform: rotate(1deg);
+  rotate: 1deg;
    -webkit-font-smoothing: antialiased;
 }
 

@@ -98,6 +98,11 @@
   rotate: 1deg;
 }
 
+.projects-button-container button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 @media screen and (max-width: 981px) {
   .project-card{
     flex-direction: column-reverse !important;
