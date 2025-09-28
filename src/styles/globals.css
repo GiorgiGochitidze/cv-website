@@ -6,7 +6,7 @@
     font-family: "Neonrec", sans-serif;
 }
 
-body{
+body, html{
     overflow-x: hidden;
     background: #0d0d0d;
 }

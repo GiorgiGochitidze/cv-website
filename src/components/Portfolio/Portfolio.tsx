@@ -4,8 +4,8 @@ import PortfolioCard from "./PortfolioCard";
 const Portfolio = () => {
   return (
     <div id="portfolio-section" className="portfolio-container">
-      <h5>Portfolio</h5>
-      <p style={{ textAlign: "center", paddingInline: "10px" }}>
+      <h5 data-aos="fade-up">Portfolio</h5>
+      <p data-aos="fade-up" data-aos-delay="100" style={{ textAlign: "center", paddingInline: "10px" }}>
         Here you can see my projects on which i worked on
       </p>
 

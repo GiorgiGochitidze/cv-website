@@ -1,6 +1,9 @@
+"use client";
+
 import { Link } from "react-scroll";
 import "./CSS/DropdownMenu.css";
 import { SetStateAction, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 type NavLinksType = {
   label: string;
@@ -28,8 +31,12 @@ const DropdownMenu = ({ navLinks, setShowMenu }: MenuTypes) => {
 
   return (
     <div className="dropdownMenu-container">
-      <div className="menu-card">
-        {navLinks.map((navItem) => (
+      <motion.div
+        initial={{ opacity: 0, width: 0, height: "100%" }}
+        animate={{ opacity: 1, width: "100%" }}
+        className="menu-card"
+      >
+        {navLinks.map((navItem, index) => (
           <Link
             key={navItem.label}
             spy={true}
@@ -38,14 +45,22 @@ const DropdownMenu = ({ navLinks, setShowMenu }: MenuTypes) => {
             duration={500}
             offset={-150}
             to={navItem.scrollPath}
-            className={`menu-items ${activeSection === navItem.scrollPath ? "active" : ""}`}
+            className={`menu-items ${
+              activeSection === navItem.scrollPath ? "active" : ""
+            }`}
             onSetActive={() => handleSetActive(navItem.scrollPath)}
             onClick={() => setShowMenu(false)}
           >
-            <p>{navItem.label}</p>
+            <motion.p
+              initial={{ opacity: 0, x: 500 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1 + index * 0.1 }}
+            >
+              {navItem.label}
+            </motion.p>
           </Link>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

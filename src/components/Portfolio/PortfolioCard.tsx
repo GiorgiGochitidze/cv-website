@@ -27,6 +27,11 @@ const PortfolioCard = ({
   const alignItems =
     mounted && isFlexDirectionRow && isMax981 ? "flex-end" : "flex-start";
 
+  const aosTextAnimation =
+    flexDirectionSide === "row-reverse" ? "fade-right" : "fade-left";
+  const aosImageAnimation =
+    flexDirectionSide === "row-reverse" ? "fade-left" : "fade-right";
+
   return (
     <div
       style={{
@@ -35,7 +40,11 @@ const PortfolioCard = ({
       }}
       className="project-card"
     >
-      <div className="project-image-container">
+      <div
+        data-aos={aosImageAnimation}
+        data-aos-delay="100"
+        className="project-image-container"
+      >
         <Image
           src={imageUrl}
           alt={projectHeader}
@@ -52,16 +61,26 @@ const PortfolioCard = ({
         }}
         className="projects-card-description"
       >
-        <p>{projectHeader}</p>
-        <p>{projectDescription}</p>
+        <p data-aos={aosTextAnimation}>{projectHeader}</p>
+        <p data-aos={aosTextAnimation} data-aos-delay="100">
+          {projectDescription}
+        </p>
         <div
           className="projects-button-container"
           style={{
             justifyContent: isFlexDirectionRow ? "flex-end" : "flex-start",
           }}
         >
-          <button>View Demo</button>
-          <button className="view-github-btn">View Github</button>
+          <button data-aos={aosTextAnimation} data-aos-delay="200">
+            View Website
+          </button>
+          <button
+            data-aos={aosTextAnimation}
+            data-aos-delay="300"
+            className="view-github-btn"
+          >
+            View Github
+          </button>
         </div>
       </div>
     </div>
