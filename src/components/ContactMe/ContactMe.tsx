@@ -14,7 +14,7 @@ const ContactMe = () => {
           type="text"
           name="name"
           aria-label="name-field"
-          placeholder="Your Name"
+          placeholder="Name"
           required
           data-aos="fade-up"
           data-aos-delay="100"
@@ -23,7 +23,7 @@ const ContactMe = () => {
           type="email"
           name="email"
           aria-label="email"
-          placeholder="Your Email"
+          placeholder="Email"
           required
           data-aos="fade-up"
           data-aos-delay="150"
