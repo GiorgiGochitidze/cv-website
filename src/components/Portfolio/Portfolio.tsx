@@ -15,24 +15,15 @@ const Portfolio = () => {
 
       <div className="portfolio-list">
         <PortfolioCard
-          flexDirectionSide={"row-reverse"}
-          projectHeader={"Travel Pulse"}
-          imageUrl={"/images/Projects/travelPulse.png"}
-          projectDescription={`Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam quas
-          perferendis tempore voluptatem ea nobis nam distinctio, illum quod
-          dolore mollitia atque, voluptate esse quibusdam fugiat, adipisci
-          corporis repudiandae voluptas?`}
-          githubLink={"https://github.com/GiorgiGochitidze/TravelPulse2"}
-          websiteLink={"https://travelpulse.netlify.app/"}
-        />
-        <PortfolioCard
           flexDirectionSide={"row"}
           projectHeader={"Web Canvas"}
           imageUrl={"/images/Projects/webCanvas.png"}
-          projectDescription={`Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam quas
-          perferendis tempore voluptatem ea nobis nam distinctio, illum quod
-          dolore mollitia atque, voluptate esse quibusdam fugiat, adipisci
-          corporis repudiandae voluptas?`}
+          projectDescription={`WebCanvas is a streamlined CRM platform
+          designed to help businesses manage clients, tasks, and internal
+          workflows with ease. It focuses on simplicity and clarity,
+          offering essential tools for organizing customers without unnecessary complexity.
+          The system emphasizes efficiency, accessibility, and a clean
+          user experience.`}
           githubLink={""}
           websiteLink={"https://webcanvasstudio.com/"}
         />

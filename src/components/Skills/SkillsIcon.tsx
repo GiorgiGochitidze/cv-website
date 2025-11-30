@@ -22,8 +22,10 @@ import {
   SiFramer,
   SiFusionauth,
   SiMongodb,
+  SiNestjs,
   SiRedux,
 } from "react-icons/si";
+import { RiNextjsLine } from "react-icons/ri";
 
 type Skill = {
   skillName: string;
@@ -47,12 +49,14 @@ const skillCategories: SkillCategory[] = [
       { skillName: "React", Icon: FaReact },
       { skillName: "Redux & Redux Toolkit", Icon: SiRedux },
       { skillName: "TypeScript", Icon: BiLogoTypescript },
+      { skillName: "NextJs", Icon: RiNextjsLine },
     ],
   },
   {
     name: "Back-End",
     Icon: FaNodeJs,
     skills: [
+      { skillName: "NestJS", Icon: SiNestjs },
       { skillName: "NodeJs", Icon: FaNodeJs },
       { skillName: "ExpressJs", Icon: SiExpress },
       { skillName: "MongoDB", Icon: SiMongodb },
@@ -61,7 +65,7 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    name: "Tools & Design",
+    name: "Tools & Workflow",
     Icon: FaGithub,
     skills: [
       { skillName: "Git", Icon: FaGitAlt },
@@ -69,6 +73,7 @@ const skillCategories: SkillCategory[] = [
       { skillName: "Framer-motion", Icon: SiFramer },
       { skillName: "Photoshop", Icon: SiAdobephotoshop },
       { skillName: "Figma", Icon: FaFigma },
+      { skillName: "Agile" },
     ],
   },
 ];
