@@ -11,6 +11,8 @@ type ProjectType = {
   flexDirectionSide: "row" | "row-reverse" | "column" | "column-reverse";
   githubLink: string;
   websiteLink: string;
+  position: string;
+  date: string;
 };
 
 const PortfolioCard = ({
@@ -20,6 +22,8 @@ const PortfolioCard = ({
   flexDirectionSide,
   githubLink,
   websiteLink,
+  position,
+  date,
 }: ProjectType) => {
   const isFlexDirectionRow = flexDirectionSide === "row";
   const isMax981 = useMediaQuery({ maxWidth: 981 });
@@ -66,6 +70,11 @@ const PortfolioCard = ({
         className="projects-card-description"
       >
         <p data-aos={aosTextAnimation}>{projectHeader}</p>
+        <p style={{ fontSize: "16px", color: "var(--mainColor)" }}>
+          {" "}
+          {position}
+        </p>
+        <p data-aos={aosTextAnimation}>{date}</p>
         <p data-aos={aosTextAnimation} data-aos-delay="100">
           {projectDescription}
         </p>

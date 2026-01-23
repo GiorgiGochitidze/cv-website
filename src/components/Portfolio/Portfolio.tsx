@@ -15,6 +15,16 @@ const Portfolio = () => {
 
       <div className="portfolio-list">
         <PortfolioCard
+          flexDirectionSide={"row-reverse"}
+          projectHeader={"Kan-Guroo"}
+          imageUrl={"/images/Projects/kan-guroo.png"}
+          projectDescription={`Kan-Guroo was created with one idea to make education and career development accessible and innovative for everyone. We help young people, businesses, and professionals find their path and connect with the mentors who will guide them along the way.`}
+          position={"Back-End Developer"}
+          date={"Sep 2025 - Present"}
+          githubLink={""}
+          websiteLink={"https://kan-guroo.com/"}
+        />
+        <PortfolioCard
           flexDirectionSide={"row"}
           projectHeader={"Web Canvas"}
           imageUrl={"/images/Projects/webCanvas.png"}
@@ -24,6 +34,8 @@ const Portfolio = () => {
           offering essential tools for organizing customers without unnecessary complexity.
           The system emphasizes efficiency, accessibility, and a clean
           user experience.`}
+          position={"Full-Stack Developer"}
+          date={"Aug 2024 - Jan 2026"}
           githubLink={""}
           websiteLink={"https://webcanvasstudio.com/"}
         />

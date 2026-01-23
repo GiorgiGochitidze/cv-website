@@ -36,6 +36,8 @@
 .projects-card-description p:nth-child(1) {
   color: var(--mainColor);
   font-size: 50px;
+  display: flex;
+  align-items: center;
 }
 
 .projects-card-description {
