@@ -19,7 +19,7 @@ export async function handleContactForm(formData: FormData) {
         "Accept": "application/json",
         // Force the server action to identify as your actual live website domain
         "Origin": "https://giorgig.netlify.app",
-        "Referer": "https://giorgig.netlify.app/contact"
+        "Referer": "https://giorgig.netlify.app/"
       },
       body: JSON.stringify(bodyData),
     });
