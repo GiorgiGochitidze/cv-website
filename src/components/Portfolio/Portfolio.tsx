@@ -18,9 +18,8 @@ const Portfolio = () => {
           flexDirectionSide={"row-reverse"}
           projectHeader={"Wallstreet"}
           imageUrl={"/images/Projects/wstreet.png"}
-          projectDescription={`A sleek, high performance URL shortening web application, built entirely with Next.js ecosystem. Leveraging NextJS Route Handlers for a serverless backend architecture and MongoDB
-            for ultra-fast link generation and persistance, the platform features UI with real-time click and expiration status tracking`}
-          position={"Front-End"}
+          projectDescription={`Full-Stack Developer for a production-ready B2B e-commerce platform tailoring food wholesale services to restaurants and hotels by placing order from website. Built highly performant, fully responsive interface featuring a robust user authentication flow and custom multi-language translation supporting Georgian, English, and Russian. Developed an integrated admin management panel to dynamically manipulate product pricing, control inventory states, and handle localized content routing seamlessly without hardcoded variables`}
+          position={"Full-Stack Developer"}
           date={"May 12 2026 - Paused"}
           githubLink={""}
           websiteLink={"https://wstreet.netlify.app/en"}
