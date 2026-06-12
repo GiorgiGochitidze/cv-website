@@ -12,7 +12,7 @@ type ProjectType = {
   githubLink: string;
   websiteLink: string;
   position: string;
-  date: string;
+  date?: string;
 };
 
 const PortfolioCard = ({
