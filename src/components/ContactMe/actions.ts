@@ -3,32 +3,36 @@
 export async function handleContactForm(formData: FormData) {
   const AccessKey = "3ef49d42-d745-4631-ad29-52ced2639ecc";
 
-  formData.append("access_key", AccessKey);
-
-  const object = Object.fromEntries(formData);
-  const json = JSON.stringify(object);
+  const object = Object.fromEntries(formData.entries());
+  
+  const bodyData = {
+    ...object,
+    access_key: AccessKey
+  };
 
   try {
     const res = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
+        "Accept": "application/json",
       },
-      body: json,
+      body: JSON.stringify(bodyData),
     });
+
+    if (!res.ok) {
+      return { success: false, message: `Server responded with status: ${res.status}` };
+    }
 
     const data = await res.json();
 
     if (data.success) {
-      console.log("✅ Submission successful:", data);
+      return { success: true, data: data };
     } else {
-      console.error("❌ Submission failed:", data);
+      return { success: false, message: data.message || "Web3Forms rejection." };
     }
 
-    return data;
   } catch (err) {
-    console.error("Submission Failed:", err);
-    throw err;
+    return { success: false, message: err instanceof Error ? err.message : "Network error occurred." };
   }
 }
