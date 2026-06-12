@@ -1,13 +1,14 @@
 "use server";
 
 export async function handleContactForm(formData: FormData) {
-  const AccessKey = "9dd3f533-3c65-44dd-8876-2c9592b6c370";
+  const AccessKey = "9dd3f533-3c65-44dd-8876-2c9592b6c370"; 
 
   const object = Object.fromEntries(formData.entries());
   
   const bodyData = {
     ...object,
-    access_key: AccessKey
+    access_key: AccessKey,
+    from: "Giorgi Gochitidze"
   };
 
   try {
@@ -16,20 +17,20 @@ export async function handleContactForm(formData: FormData) {
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json",
+        // Force the server action to identify as your actual live website domain
+        "Origin": "https://giorgig.netlify.app",
+        "Referer": "https://giorgig.netlify.app/contact"
       },
       body: JSON.stringify(bodyData),
     });
 
-    if (!res.ok) {
-      return { success: false, message: `Server responded with status: ${res.status}` };
-    }
-
     const data = await res.json();
 
-    if (data.success) {
+    if (res.ok && data.success) {
       return { success: true, data: data };
     } else {
-      return { success: false, message: data.message || "Web3Forms rejection." };
+      // Return the exact error message Web3Forms is sending back to help us debug
+      return { success: false, message: data.message || `Web3Forms rejected with status ${res.status}` };
     }
 
   } catch (err) {
