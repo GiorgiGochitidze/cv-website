@@ -1,28 +1,56 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./CSS/ContactMe.css";
-import { handleContactForm } from "./actions";
 
 const ContactMe = () => {
   const formRef = useRef<HTMLFormElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (formData: FormData) => {
-    const result = await handleContactForm(formData);
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); 
+    setIsSubmitting(true);
 
-    if (result.success) {
-      alert("Message sent successfully! 🚀");
-      formRef.current?.reset(); 
-    } else {
-      alert(`Oops! Something went wrong: ${result.message}`);
+    const formData = new FormData(event.currentTarget);
+
+    formData.append("access_key", "ea30ef72-044a-42f3-92bd-a1c2fc8552e9");
+    formData.append("from", "Giorgi Gochitidze");
+
+    const object = Object.fromEntries(formData.entries());
+    const json = JSON.stringify(object);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        alert("Message sent successfully! 🚀");
+        formRef.current?.reset(); 
+      } else {
+        alert(
+          `Oops! Something went wrong: ${data.message || "Submission rejected."}`,
+        );
+      }
+    } catch {
+      alert("Network error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
     <div id="contact-section" className="contact-form-container">
       <h6 data-aos="fade-up">Contact Me</h6>
-      
-      <form ref={formRef} action={handleSubmit}>
+
+      <form ref={formRef} onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
@@ -50,8 +78,13 @@ const ContactMe = () => {
           data-aos="fade-up"
           data-aos-delay="200"
         />
-        <button data-aos="fade-up" data-aos-delay="250" type="submit">
-          Submit Message
+        <button
+          data-aos="fade-up"
+          data-aos-delay="250"
+          type="submit"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? "Sending..." : "Submit Message"}
         </button>
       </form>
     </div>
