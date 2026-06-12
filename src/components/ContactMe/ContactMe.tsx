@@ -1,15 +1,28 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import "./CSS/ContactMe.css";
 import { handleContactForm } from "./actions";
 
 const ContactMe = () => {
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = async (formData: FormData) => {
+    const result = await handleContactForm(formData);
+
+    if (result.success) {
+      alert("Message sent successfully! 🚀");
+      formRef.current?.reset(); 
+    } else {
+      alert(`Oops! Something went wrong: ${result.message}`);
+    }
+  };
+
   return (
     <div id="contact-section" className="contact-form-container">
-      {/* Directly connect the form to server action */}
       <h6 data-aos="fade-up">Contact Me</h6>
-      <form action={handleContactForm}>
+      
+      <form ref={formRef} action={handleSubmit}>
         <input
           type="text"
           name="name"
